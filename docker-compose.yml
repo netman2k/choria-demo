@@ -31,14 +31,3 @@ services:
     ports:
       - 8080
       - 8081
-
-  puppetboard:
-    image: puppet/puppetboard
-    ports:
-      - 8000
-
-  puppetexplorer:
-    image: puppet/puppetexplorer
-    ports:
-      - 80
-    read_only: true
