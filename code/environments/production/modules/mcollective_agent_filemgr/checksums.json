@@ -1,0 +1,11 @@
+{
+  "README.md": "87a74bb371527d3cf0ed3d88232ffafa",
+  "data/defaults.yaml": "1f1a606fc27d708893ba1fbb221c1dbe",
+  "data/plugin.yaml": "ee7d49e39fb45e1b3540377fbc20ab54",
+  "files/mcollective/agent/filemgr.ddl": "506cc7965ef33619bcf80119b73555b1",
+  "files/mcollective/agent/filemgr.rb": "327dacb564b8d682dea321fc31b7a527",
+  "files/mcollective/application/filemgr.rb": "1ef881c11f702dbece94ea75734f6c4a",
+  "hiera.yaml": "3d31dfa7be184e008811f2ee66b361b3",
+  "manifests/init.pp": "af213367982ec94754976c8ad4339168",
+  "metadata.json": "c00aa1fc21fe812a2bb01fc88d9539fb"
+}

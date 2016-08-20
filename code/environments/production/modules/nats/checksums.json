@@ -1,0 +1,13 @@
+{
+  "CHANGELOG.md": "65bd7af2ab46a5091eeccbf5b2e34579",
+  "README.md": "5c6bc79fee86a6b6be0d68819c4e46c9",
+  "files/gnatsd-0.9.4": "9004fafa061801aac5a96352d6b11f34",
+  "manifests/collectd.pp": "10733a3bd19c55d6397f0926fcce7738",
+  "manifests/config.pp": "94d39f3340ac26ddbf7e6e5e3e07ba18",
+  "manifests/init.pp": "bd374c3b02331a2053ba4b99c6b9e638",
+  "manifests/install.pp": "7f49c9aad1c9c8ee0f368b772b424f96",
+  "manifests/service.pp": "140ec5bd814166e552e83196a6fcb49a",
+  "metadata.json": "07c949965a05b233d5cb2b2e3102bf7c",
+  "templates/nats.cfg.epp": "542e855dfc273abc8333178b9ee5236c",
+  "templates/systemd_service.epp": "522bd29285afbcccdabeaaa8d8568bec"
+}

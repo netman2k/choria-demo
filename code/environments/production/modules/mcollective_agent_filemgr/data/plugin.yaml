@@ -1,0 +1,18 @@
+---
+mcollective_agent_filemgr::config_name: filemgr
+mcollective_agent_filemgr::common_files:
+- agent/filemgr.ddl
+mcollective_agent_filemgr::common_directories: []
+mcollective_agent_filemgr::server_files:
+- agent/filemgr.rb
+mcollective_agent_filemgr::server_directories: []
+mcollective_agent_filemgr::client_files:
+- application/filemgr.rb
+mcollective_agent_filemgr::client_directories: []
+mcollective_agent_filemgr::policies:
+- action: allow
+  callers: "*"
+  actions: status
+  facts: "*"
+  classes: "*"
+

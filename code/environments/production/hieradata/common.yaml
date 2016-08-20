@@ -1,0 +1,26 @@
+mcollective_choria::package_dependencies:
+  "gcc": present
+  "gcc-c++": present
+  "make": present
+
+mcollective::client: true
+
+mcollective::client_config:
+    default_discovery_method: "choria"
+
+mcollective_choria::config:
+  "puppetdb_host": "puppetdb.example.net"
+  "middleware_hosts":
+    - nats:4222
+
+mcollective_agent_puppet::config:
+  "splay": "false"
+  "signal_daemon": "false"
+  "command": "/opt/puppetlabs/bin/puppet agent"
+
+mcollective::site_policies:
+  - action: "allow"
+    callers: "choria=mcuser.mcollective"
+    actions: "*"
+    facts: "*"
+    classes: "*"

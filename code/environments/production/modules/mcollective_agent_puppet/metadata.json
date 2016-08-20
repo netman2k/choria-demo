@@ -1,0 +1,20 @@
+{
+  "name": "ripienaar-mcollective_agent_puppet",
+  "version": "1.11.1",
+  "author": "R.I.Pienaar <rip@devco.net>",
+  "summary": "Run Puppet agent, get its status, and enable/disable it",
+  "license": "ASL2.0",
+  "source": "http://puppetlabs.com",
+  "project_page": null,
+  "issues_url": null,
+  "dependencies": [
+    {"name":"ripienaar/mcollective","version_requirement":">= 0.0.17 < 2.0.0"}
+  ],
+  "data_provider": "hiera",
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.5.0"
+    }
+  ]
+}

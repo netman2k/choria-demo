@@ -1,0 +1,10 @@
+{
+  "README.md": "793561cc54834cc784f53e0a7c1254da",
+  "data/defaults.yaml": "edcd18b48bd2a3b51776e256a3059922",
+  "data/plugin.yaml": "b81f920b8c7c9e72811d2d62614df342",
+  "files/mcollective/util/actionpolicy.ddl": "64b71b02ee07ca068d53d8bebbbea77a",
+  "files/mcollective/util/actionpolicy.rb": "fe9428c62ea4798c6dd276b0ac23c9e4",
+  "hiera.yaml": "3d31dfa7be184e008811f2ee66b361b3",
+  "manifests/init.pp": "25b009b62dbe8a2376315c794181ae8f",
+  "metadata.json": "2d0a282a1f09f0a6e667616cac0fdca3"
+}

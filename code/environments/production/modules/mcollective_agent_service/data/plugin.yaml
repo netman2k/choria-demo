@@ -1,0 +1,19 @@
+---
+mcollective_agent_service::config_name: service
+mcollective_agent_service::common_files:
+- data/service_data.ddl
+- data/service_data.rb
+- util/service/base.rb
+- util/service/puppetservice.rb
+- validator/service_name.ddl
+- validator/service_name.rb
+- agent/service.ddl
+mcollective_agent_service::common_directories:
+- util/service
+mcollective_agent_service::server_files:
+- agent/service.rb
+mcollective_agent_service::server_directories: []
+mcollective_agent_service::client_files:
+- application/service.rb
+mcollective_agent_service::client_directories: []
+

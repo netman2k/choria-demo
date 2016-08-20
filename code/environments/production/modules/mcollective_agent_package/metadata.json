@@ -1,0 +1,14 @@
+{
+  "name": "ripienaar-mcollective_agent_package",
+  "version": "4.4.0-2",
+  "author": "R.I.Pienaar",
+  "summary": "Install and uninstall software packages",
+  "license": "ASL 2.0",
+  "source": "https://github.com/puppetlabs/mcollective-package-agent",
+  "project_page": "https://github.com/puppetlabs/mcollective-package-agent",
+  "issues_url": "https://github.com/puppetlabs/mcollective-package-agent/issues",
+  "dependencies": [
+    {"name":"ripienaar/mcollective","version_requirement":">= 0.0.1 < 2.0.0"}
+  ],
+  "data_provider": "hiera"
+}

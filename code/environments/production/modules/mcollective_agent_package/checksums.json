@@ -1,0 +1,16 @@
+{
+  "README.md": "d782ef8137f0c4bee36e421563a90d57",
+  "data/defaults.yaml": "aa6e24bbaac25365030d0f79b6ede47f",
+  "data/plugin.yaml": "2f417b55dcc09c9ad4539693e4b8e1a5",
+  "files/mcollective/agent/package.ddl": "ae1d49824b9b84d1a8f617c317147bea",
+  "files/mcollective/agent/package.rb": "60d4b37d3844fc379a99d2b17a243620",
+  "files/mcollective/application/package.rb": "abdea17b77f205f678860a4891cb3737",
+  "files/mcollective/util/package/base.rb": "1bdb7e7a6dcfea6fd2a06c5dc39b7276",
+  "files/mcollective/util/package/packagehelpers.rb": "312aecc3b1ee75f97a989fea3e7a221d",
+  "files/mcollective/util/package/puppetpackage.rb": "865eec36ae05c30b072d3f5bd871fb52",
+  "files/mcollective/util/package/yumHelper.py": "40fa99ef10b84c38517f6b695a0af533",
+  "files/mcollective/util/package/yumpackage.rb": "256bde1567d8794ca929092462f5ae03",
+  "hiera.yaml": "3d31dfa7be184e008811f2ee66b361b3",
+  "manifests/init.pp": "c2cb654bae6499747d5a7c8ba2f512fd",
+  "metadata.json": "70e5065c0800df4d5f0f637375fcbac2"
+}

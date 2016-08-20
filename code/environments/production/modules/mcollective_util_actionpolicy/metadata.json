@@ -1,0 +1,20 @@
+{
+  "name": "ripienaar-mcollective_util_actionpolicy",
+  "version": "2.1.0",
+  "author": "P.Loubser <pieter.loubser@puppetlabs.com>",
+  "summary": "Action Policy simplerpc authorization plugin",
+  "license": "ASL 2.0",
+  "source": "https://github.com/puppetlabs/mcollective-actionpolicy-authorization",
+  "project_page": "https://github.com/puppetlabs/mcollective-actionpolicy-authorization",
+  "issues_url": "https://github.com/puppetlabs/mcollective-actionpolicy-authorization/issues",
+  "dependencies": [
+    {"name":"ripienaar/mcollective","version_requirement":">= 0.0.1 < 2.0.0"}
+  ],
+  "data_provider": "hiera",
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.5.0"
+    }
+  ]
+}
