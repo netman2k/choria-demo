@@ -13,3 +13,6 @@
 [submodule "code/environments/production/modules/systemd"]
 	path = code/environments/production/modules/systemd
 	url = https://github.com/camptocamp/puppet-systemd
+[submodule "code/environments/production/modules/mcollective_choria"]
+	path = code/environments/production/modules/mcollective_choria
+	url = https://github.com/choria-io/mcollective-choria.git
