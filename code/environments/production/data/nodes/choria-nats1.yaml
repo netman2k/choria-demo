@@ -1,0 +1,3 @@
+---
+systemd::manage_resolved: false
+systemd::manage_networkd: false
