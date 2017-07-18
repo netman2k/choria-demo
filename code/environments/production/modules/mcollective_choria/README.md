@@ -14,23 +14,22 @@ The main goal is ease of use and setup while remaining secure. It shares a secur
 
 Includes:
 
+  * A flexible Playbook system that can integrate MCollective with many other systems
+  * An Orchestrator for the Puppet Multi Node Applications
   * A Security Plugin for AIO Puppet including a tool to make client certificates
   * A Connector using NATS.io
   * A Discovery plugin for PuppetDB
-  * An Orchestrator for the Puppet Multi Node Applications
   * Shared configuration of SSL and other properties
   * Support for SRV records for configuration to atain a zero config setup
   * Every component uses strong SSL encryption that cannot be disabled.
 
+See [choria.io](http://choria.io) for full details
 
 ## Module Description
 
 ## Usage
 
-This module is automatically set up for you when you use the [ripienaar-mcollective](https://forge.puppet.com/ripienaar/mcollective)
-module.
-
-A deployment guide can be found at the [wiki](https://github.com/ripienaar/mcollective-choria/wiki)
+A deployment guide can be found at the [Choria Website](http://choria.io)
 
 ## Data Reference
 
