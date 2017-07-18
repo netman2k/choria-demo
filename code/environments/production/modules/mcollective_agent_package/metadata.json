@@ -1,6 +1,6 @@
 {
-  "name": "ripienaar-mcollective_agent_package",
-  "version": "4.4.0-2",
+  "name": "choria-mcollective_agent_package",
+  "version": "4.5.0",
   "author": "R.I.Pienaar",
   "summary": "Install and uninstall software packages",
   "license": "ASL 2.0",
@@ -8,7 +8,13 @@
   "project_page": "https://github.com/puppetlabs/mcollective-package-agent",
   "issues_url": "https://github.com/puppetlabs/mcollective-package-agent/issues",
   "dependencies": [
-    {"name":"ripienaar/mcollective","version_requirement":">= 0.0.1 < 2.0.0"}
+    {"name":"choria/mcollective","version_requirement":">= 0.0.24 < 2.0.0"}
   ],
-  "data_provider": "hiera"
+  "data_provider": "hiera",
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.5.0"
+    }
+  ]
 }

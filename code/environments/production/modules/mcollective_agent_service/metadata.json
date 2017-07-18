@@ -1,14 +1,20 @@
 {
-  "name": "ripienaar-mcollective_agent_service",
-  "version": "3.1.3",
+  "name": "choria-mcollective_agent_service",
+  "version": "3.1.5",
   "author": "R.I.Pienaar",
   "summary": "Start and stop system services",
   "license": "ASL 2.0",
   "source": "http://projects.puppetlabs.com/projects/mcollective-plugins/wiki",
-  "project_page": null,
+  "project_page": "http://projects.puppetlabs.com/projects/mcollective-plugins/wiki",
   "issues_url": null,
   "dependencies": [
-    {"name":"ripienaar/mcollective","version_requirement":">= 0.0.1 < 2.0.0"}
+    {"name":"choria/mcollective","version_requirement":">= 0.0.24 < 2.0.0"}
   ],
-  "data_provider": "hiera"
+  "data_provider": "hiera",
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 4.5.0"
+    }
+  ]
 }

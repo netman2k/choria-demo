@@ -51,7 +51,7 @@ module MCollective
               when "2"
                 raise "Window is not supported yet" if MCollective::Util.windows?
                 return MgrV2.new(configfile, service_name, testing)
-              when "3", "4"
+              when "3", "4", "5"
                 if MCollective::Util.windows?
                   return MgrWindows.new(configfile, service_name, testing)
                 else
@@ -90,6 +90,7 @@ module MCollective
         summary["resources"] = \
           {"failed" => 0,
            "changed" => 0,
+           "corrective_change" => 0,
            "total" => 0,
            "restarted" => 0,
            "out_of_sync" => 0}.merge!(summary["resources"])
@@ -123,18 +124,23 @@ module MCollective
         type_distribution
       end
 
-      # loads the report file and returns log messages grouped by log levels
+      # Reads the last run report and extracts the log lines
+      #
+      # @return [Array<Hash>]
       def last_run_logs
-        logs = {}
-        if File.exists?(Puppet[:lastrunreport])
-          report = YAML.load_file(Puppet[:lastrunreport])
-          levels = Puppet::Util::Log.levels
-          levels.each do |level|
-            logs[level.to_s] = report.logs.select {
-              |r| r.level == level }.map { |r| r.message.chomp }
-          end
+        return [] unless File.exists?(Puppet[:lastrunreport])
+
+        report = YAML.load_file(Puppet[:lastrunreport])
+
+        report.logs.map do |line|
+          {
+            "time_utc" => line.time.utc.to_i,
+            "time" => line.time.to_i,
+            "level" => line.level.to_s,
+            "source" => line.source,
+            "msg" => line.message.chomp
+          }
         end
-        logs
       end
 
       # covert seconds to human readable string
@@ -215,7 +221,7 @@ module MCollective
           raise("Invalid environment '%s' specified" % environment)
         end
 
-        if splaylimit && !splaylimit.is_a?(Fixnum)
+        if splaylimit && !splaylimit.is_a?(Integer)
           raise("Invalid splaylimit '%s' specified" % splaylimit)
         end
 
@@ -346,7 +352,6 @@ module MCollective
       # is the agent currently applying a catalog
       def applying?
         begin
-          return false if disabled?
           platform_applying?
         rescue NotImplementedError
           raise

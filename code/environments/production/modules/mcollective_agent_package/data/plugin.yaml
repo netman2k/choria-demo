@@ -1,11 +1,15 @@
 ---
 mcollective_agent_package::config_name: package
 mcollective_agent_package::common_files:
-- util/package/puppetpackage.rb
+- data/package_data.rb
+- data/package_data.ddl
 - util/package/base.rb
-- util/package/yumHelper.py
 - util/package/packagehelpers.rb
+- util/package/puppetpackage.rb
+- util/package/yumHelper.py
 - util/package/yumpackage.rb
+- validator/package_name.ddl
+- validator/package_name.rb
 - agent/package.ddl
 mcollective_agent_package::common_directories:
 - util/package

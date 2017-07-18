@@ -16,4 +16,10 @@ mcollective_agent_service::server_directories: []
 mcollective_agent_service::client_files:
 - application/service.rb
 mcollective_agent_service::client_directories: []
+mcollective_agent_service::policies:
+- action: allow
+  callers: "*"
+  actions: status
+  facts: "*"
+  classes: "*"
 

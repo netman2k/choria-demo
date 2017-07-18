@@ -1,4 +1,4 @@
-# mcollective_agent_service version 3.1.3
+# mcollective_agent_service version 3.1.5
 
 #### Table of Contents
 
@@ -8,16 +8,20 @@
 
 ## Overview
 
-The mcollective_agent_service module is based on the source from the service mcollective
-plugin for use with the [ripienaar mcollective](http://forge.puppet.com/ripienaar/mcollective) module.
+Start and stop system services
 
-## Module Description
+The mcollective_agent_service module is based on the source from http://projects.puppetlabs.com/projects/mcollective-plugins/wiki.
+
+Available Actions:
+
+  * **restart** - Restart a service
+  * **start** - Start a service
+  * **status** - Gets the status of a service
+  * **stop** - Stop a service
 
 ## Usage
 
-You can include this module into your infrastructure as any other module, but as it's designed to work well
-with the [ripienaar mcollective](http://forge.puppet.com/ripienaar/mcollective) module you can configure it
-via Hiera:
+You can include this module into your infrastructure as any other module, but as it's designed to work with the [choria mcollective](http://forge.puppet.com/choria/mcollective) module you can configure it via Hiera:
 
 ```yaml
 mcollective::plugin_classes:
@@ -26,16 +30,14 @@ mcollective::plugin_classes:
 
 ## Configuration
 
-Server and Client configuration can be added via Hiera and managed through tiers in your site Hiera, they
-will be merged with any included in this module
+Server and Client configuration can be added via Hiera and managed through tiers in your site Hiera, they will be merged with any included in this module
 
 ```yaml
 mcollective_agent_service::config:
    example: value
 ```
 
-This will be added to both the `client.cfg` and `server.cfg`, you can likewise configure server and client
-specific settings using `mcollective_agent_service::client_config` and `mcollective_agent_service::server_config`.
+This will be added to both the `client.cfg` and `server.cfg`, you can likewise configure server and client specific settings using `mcollective_agent_service::client_config` and `mcollective_agent_service::server_config`.
 
 These settings will be added to the `/etc/puppetlabs/mcollective/plugin.d/` directory in individual files.
 
@@ -52,6 +54,8 @@ For a full list of possible configuration settings see the module [source reposi
   * `mcollective_agent_service::config` - Deep Merged Hash of common config items for this module
   * `mcollective_agent_service::server_config` - Deep Merged Hash of config items specific to managed nodes
   * `mcollective_agent_service::client_config` - Deep Merged Hash of config items specific to client nodes
+  * `mcollective_agent_service::policy_default` - `allow` or `deny`
+  * `mcollective_agent_service::policies` - List of `actionpolicy` policies to deploy with an agent
   * `mcollective_agent_service::client` - installs client files when true - defaults to `$mcollective::client`
   * `mcollective_agent_service::server` - installs server files when true - defaults to `$mcollective::server`
   * `mcollective_agent_service::ensure` - `present` or `absent`

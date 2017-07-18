@@ -9,11 +9,22 @@ module MCollective
       def startup_hook
         configfile = @config.pluginconf.fetch("puppet.config", nil)
 
-        @puppet_command = @config.pluginconf.fetch("puppet.command", "puppet agent")
+        @puppet_command = @config.pluginconf.fetch("puppet.command", default_agent_command)
         @puppet_service = @config.pluginconf.fetch("puppet.windows_service", "puppet")
         @puppet_splaylimit = Integer(@config.pluginconf.fetch("puppet.splaylimit", 30))
         @puppet_splay = Util.str_to_bool(@config.pluginconf.fetch("puppet.splay", "true"))
         @puppet_agent = Util::PuppetAgentMgr.manager(configfile, @puppet_service)
+      end
+
+      # Determines the default command to run for puppet agent
+      #
+      # Return the puppet script to execute on the local platform.
+      def default_agent_command
+        if Util.windows?
+          "puppet.bat"
+        else
+          "puppet"
+        end + " agent"
       end
 
       def run(command, options)
@@ -33,6 +44,12 @@ module MCollective
         else
           # On Unices double fork and exec to run puppet in a disowned child
           child = fork {
+            # If relying on Puppet on PATH, ensure the default AIO path is included.
+            # On Windows, the MSI adds Puppet to the PATH.
+            if command.start_with?("puppet ")
+              ENV["PATH"] += ":/opt/puppetlabs/bin"
+            end
+
             grandchild = fork {
               exec command
             }
@@ -74,7 +91,7 @@ module MCollective
       action "last_run_summary" do
         summary = @puppet_agent.load_summary
 
-        if request[:parse_log]
+        if request[:logs]
           reply[:logs] = @puppet_agent.last_run_logs
         else
           reply[:logs] = {}
@@ -83,6 +100,7 @@ module MCollective
         reply[:type_distribution]     = @puppet_agent.managed_resource_type_distribution
         reply[:out_of_sync_resources] = summary["resources"].fetch("out_of_sync", 0)
         reply[:failed_resources]      = summary["resources"].fetch("failed", 0)
+        reply[:corrected_resources]   = summary["resources"].fetch("corrective_change", 0)
         reply[:changed_resources]     = summary["resources"].fetch("changed", 0)
         reply[:total_resources]       = summary["resources"].fetch("total", 0)
         reply[:total_time]            = summary["time"].fetch("total", 0)
@@ -212,7 +230,7 @@ module MCollective
         args[:use_cached_catalog] = request[:use_cached_catalog] if request.include?(:use_cached_catalog)
 
         # we can only pass splay arguments if the daemon isn't in signal mode :(
-        signal_daemon = Util.str_to_bool(@config.pluginconf.fetch("puppet.signal_daemon","true")) 
+        signal_daemon = Util.str_to_bool(@config.pluginconf.fetch("puppet.signal_daemon","true"))
         unless @puppet_agent.status[:daemon_present] && signal_daemon
           if request[:force] == true
             # forcing implies --no-splay

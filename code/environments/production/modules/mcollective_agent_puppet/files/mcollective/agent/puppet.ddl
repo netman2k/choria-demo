@@ -2,8 +2,8 @@ metadata :name => "puppet",
          :description => "Run Puppet agent, get its status, and enable/disable it",
          :author => "R.I.Pienaar <rip@devco.net>",
          :license => "ASL2.0",
-         :version => "1.11.1",
-         :url => "http://puppetlabs.com",
+         :version => "1.13.1",
+         :url => "https://github.com/puppetlabs/mcollective-puppet-agent",
          :timeout => 20
 
 requires :mcollective => "2.2.1"
@@ -83,9 +83,9 @@ end
 action "last_run_summary", :description => "Get the summary of the last Puppet run" do
     display :always
 
-    input  :parse_log,
+    input  :logs,
            :description => "Whether or not to parse the logs from last_run_report.yaml",
-           :prompt      => "Parse log from last_run_report.yaml?",
+           :prompt      => "Parse log from last_run_report.yaml",
            :optional    => true,
            :type        => :boolean,
            :default     => false
@@ -98,6 +98,11 @@ action "last_run_summary", :description => "Get the summary of the last Puppet r
     output :failed_resources,
            :description => "Resources that failed to apply",
            :display_as  => "Failed Resources",
+           :default     => -1
+
+    output :corrected_resources,
+           :description => "Resources that were correctively changed",
+           :display_as  => "Corrected Resources",
            :default     => -1
 
     output :changed_resources,

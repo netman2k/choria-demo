@@ -1,4 +1,4 @@
-# mcollective_util_actionpolicy version 2.1.0
+# mcollective_util_actionpolicy version 2.2.0
 
 #### Table of Contents
 
@@ -10,15 +10,11 @@
 
 Action Policy simplerpc authorization plugin
 
-The mcollective_util_actionpolicy module is based on the source from https://github.com/puppetlabs/mcollective-actionpolicy-authorization.
-
-## Module Description
+The mcollective_util_actionpolicy module is based on the source from https://github.com/puppetlabs/mcollective-actionpolicy-auth.
 
 ## Usage
 
-You can include this module into your infrastructure as any other module, but as it's designed to work well
-with the [ripienaar mcollective](http://forge.puppet.com/ripienaar/mcollective) module you can configure it
-via Hiera:
+You can include this module into your infrastructure as any other module, but as it's designed to work with the [choria mcollective](http://forge.puppet.com/choria/mcollective) module you can configure it via Hiera:
 
 ```yaml
 mcollective::plugin_classes:
@@ -27,20 +23,18 @@ mcollective::plugin_classes:
 
 ## Configuration
 
-Server and Client configuration can be added via Hiera and managed through tiers in your site Hiera, they
-will be merged with any included in this module
+Server and Client configuration can be added via Hiera and managed through tiers in your site Hiera, they will be merged with any included in this module
 
 ```yaml
 mcollective_util_actionpolicy::config:
    example: value
 ```
 
-This will be added to both the `client.cfg` and `server.cfg`, you can likewise configure server and client
-specific settings using `mcollective_util_actionpolicy::client_config` and `mcollective_util_actionpolicy::server_config`.
+This will be added to both the `client.cfg` and `server.cfg`, you can likewise configure server and client specific settings using `mcollective_util_actionpolicy::client_config` and `mcollective_util_actionpolicy::server_config`.
 
 These settings will be added to the `/etc/puppetlabs/mcollective/plugin.d/` directory in individual files.
 
-For a full list of possible configuration settings see the module [source repository documentation](https://github.com/puppetlabs/mcollective-actionpolicy-authorization).
+For a full list of possible configuration settings see the module [source repository documentation](https://github.com/puppetlabs/mcollective-actionpolicy-auth).
 
 ## Data Reference
 
@@ -53,6 +47,8 @@ For a full list of possible configuration settings see the module [source reposi
   * `mcollective_util_actionpolicy::config` - Deep Merged Hash of common config items for this module
   * `mcollective_util_actionpolicy::server_config` - Deep Merged Hash of config items specific to managed nodes
   * `mcollective_util_actionpolicy::client_config` - Deep Merged Hash of config items specific to client nodes
+  * `mcollective_util_actionpolicy::policy_default` - `allow` or `deny`
+  * `mcollective_util_actionpolicy::policies` - List of `actionpolicy` policies to deploy with an agent
   * `mcollective_util_actionpolicy::client` - installs client files when true - defaults to `$mcollective::client`
   * `mcollective_util_actionpolicy::server` - installs server files when true - defaults to `$mcollective::server`
   * `mcollective_util_actionpolicy::ensure` - `present` or `absent`

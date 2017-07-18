@@ -1,4 +1,4 @@
-# mcollective_agent_puppet version 1.11.1
+# mcollective_agent_puppet version 1.13.1
 
 #### Table of Contents
 
@@ -10,7 +10,7 @@
 
 Run Puppet agent, get its status, and enable/disable it
 
-The mcollective_agent_puppet module is based on the source from http://puppetlabs.com.
+The mcollective_agent_puppet module is generated automatically, based on the source from https://github.com/puppetlabs/mcollective-puppet-agent.
 
 Available Actions:
 
@@ -23,7 +23,7 @@ Available Actions:
 
 ## Usage
 
-You can include this module into your infrastructure as any other module, but as it's designed to work with the [ripienaar mcollective](http://forge.puppet.com/ripienaar/mcollective) module you can configure it via Hiera:
+You can include this module into your infrastructure as any other module, but as it's designed to work with the [choria mcollective](http://forge.puppet.com/choria/mcollective) module you can configure it via Hiera:
 
 ```yaml
 mcollective::plugin_classes:
@@ -43,7 +43,7 @@ This will be added to both the `client.cfg` and `server.cfg`, you can likewise c
 
 These settings will be added to the `/etc/puppetlabs/mcollective/plugin.d/` directory in individual files.
 
-For a full list of possible configuration settings see the module [source repository documentation](http://puppetlabs.com).
+For a full list of possible configuration settings see the module [source repository documentation](https://github.com/puppetlabs/mcollective-puppet-agent).
 
 ## Data Reference
 
@@ -61,3 +61,9 @@ For a full list of possible configuration settings see the module [source reposi
   * `mcollective_agent_puppet::client` - installs client files when true - defaults to `$mcollective::client`
   * `mcollective_agent_puppet::server` - installs server files when true - defaults to `$mcollective::server`
   * `mcollective_agent_puppet::ensure` - `present` or `absent`
+
+## Development:
+
+To contribute to this MCollective plugin please visit https://github.com/puppetlabs/mcollective-puppet-agent.
+
+This module was generated using the Choria Plugin Packager based on templates found at the [GitHub Project](https://github.com/choria-io/).
