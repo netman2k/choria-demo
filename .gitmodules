@@ -1,0 +1,15 @@
+[submodule "code/environments/production/modules/mcollective"]
+	path = code/environments/production/modules/mcollective
+	url = https://github.com/choria-io/puppet-mcollective.git
+[submodule "code/environments/production/modules/inifile"]
+	path = code/environments/production/modules/inifile
+	url = https://github.com/puppetlabs/puppetlabs-inifile
+[submodule "code/environments/production/modules/nats"]
+	path = code/environments/production/modules/nats
+	url = https://github.com/choria-io/puppet-nats.git
+[submodule "code/environments/production/modules/stdlib"]
+	path = code/environments/production/modules/stdlib
+	url = https://github.com/puppetlabs/puppetlabs-stdlib
+[submodule "code/environments/production/modules/systemd"]
+	path = code/environments/production/modules/systemd
+	url = https://github.com/camptocamp/puppet-systemd
