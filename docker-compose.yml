@@ -12,10 +12,10 @@ services:
       - ./code:/etc/puppetlabs/code/
     environment:
       - PUPPETDB_SERVER_URLS=https://puppetdb.example.net:8081
-    links:
-      - puppetdb:puppetdb.example.net
+#    links:
+#      - puppetdb:puppetdb.example.net
 
-  puppetdbpostgres:
+  postgres:
     container_name: postgres
     image: puppet/puppetdb-postgres
     environment:
@@ -31,3 +31,6 @@ services:
     ports:
       - 8080
       - 8081
+    links:
+      - postgres:postgres
+      - puppet:puppet
